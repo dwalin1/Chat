@@ -18,5 +18,17 @@
 
     $('#log').prepend($li);
   };
+  
+  ChatApp.UI.prototype.changeUsersList = function (users) {
+    var users_list = $("<ul>");
+    
+    users.forEach(function(user) {
+      var $li = $("<li>");
+      $li.text(user);
+      users_list.append($li);
+    });
+    
+    $("#users-list").html(users_list);
+  }
 
 })();
