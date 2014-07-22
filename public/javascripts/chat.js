@@ -7,8 +7,13 @@
   };
 
   ChatApp.Chat.prototype.sendMessage = function(message) {
-    this.socket.emit('from_browser_event', { message: message });
-  }
+    if (message.slice(0,5) =='/nick') {
+      this.socket.emit('nicknameChangeRequest', message.slice(5, message.length - 1));
+      console.log(message.slice(5, message.length - 1));
+    } else {
+      this.socket.emit('from_browser_event', { message: message });
+    }
+  };
 
   // chat = new Chat();
   // Chat.prototype.method = function() {}
