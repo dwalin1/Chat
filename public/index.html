@@ -14,14 +14,14 @@
     <script src="/javascripts/chat_ui.js"></script>
     <script type="text/javascript" charset="utf-8">
       // io is global
-      var socket = io("http://10.113.57.46");
+      var socket = io("http://192.168.1.109");
       var chatClient = new ChatApp.Chat(socket);
       var chatUI = new ChatApp.UI(chatClient);
       
       socket.on('from_node_event', chatUI.displayMessage.bind(chatUI));
       socket.on('new_users_event', chatUI.changeUsersList.bind(chatUI));
+      socket.on('change_room_event', chatUI.changeRoom.bind(chatUI));
       
-
       $(document).ready(function () {
         $("#text").keyup(function(event){
             if(event.keyCode == 13){
@@ -37,7 +37,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-9">
-          <h1> Chat </h1>
+          <h1 id="roomName"> Lobby </h1>
           <form id="chat-box-form" class="form">
             <div class="form-group">
               <textarea class="form-control" id ="text" name="message"></textarea>

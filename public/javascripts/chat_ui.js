@@ -20,6 +20,8 @@
   };
   
   ChatApp.UI.prototype.changeUsersList = function (users) {
+	console.log("ChatAppUIchangeUsersList, users: ");
+	console.log(users);
     var users_list = $("<ul>");
     
     users.forEach(function(user) {
@@ -29,6 +31,10 @@
     });
     
     $("#users-list").html(users_list);
-  }
+  };
+  
+  ChatApp.UI.prototype.changeRoom = function(room) {
+	  $("#roomName").html(room);
+  };
 
 })();
