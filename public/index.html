@@ -13,7 +13,6 @@
     <script src="/javascripts/chat.js"></script>
     <script src="/javascripts/chat_ui.js"></script>
     <script type="text/javascript" charset="utf-8">
-      // io is global
       var socket = io("http://192.168.1.109");
       var chatClient = new ChatApp.Chat(socket);
       var chatUI = new ChatApp.UI(chatClient);

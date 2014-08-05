@@ -16,9 +16,4 @@
       this.socket.emit('from_browser_event', { message: message });
     }
   };
-
-  // chat = new Chat();
-  // Chat.prototype.method = function() {}
-
-
 })();
